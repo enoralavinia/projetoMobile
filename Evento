@@ -1,0 +1,42 @@
+package com.example.myproject;
+
+import android.graphics.drawable.Drawable;
+
+public class Evento {
+    private String descricao;
+    private String nome;
+
+    private String foto;
+
+    public Evento(String descricao, String nome) {
+        this.descricao = descricao;
+        this.nome = nome;
+        this.foto= foto;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Drawable getFoto() {
+        return Drawable.createFromPath(foto);
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+}
+
+
