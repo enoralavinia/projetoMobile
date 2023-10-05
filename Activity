@@ -1,0 +1,39 @@
+package com.example.myproject;
+
+import static com.example.myproject.R.*;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+
+import java.util.ArrayList;
+
+public class Activitytela2Main2Activity extends AppCompatActivity {
+
+    private RecyclerView recycler;
+    private EventoAdapter adapter;
+    private ArrayList<Evento> itens;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(layout.activitytela2_main2);
+
+        recycler= findViewById(id.recycler2);
+        itens = new ArrayList<Evento>();
+
+        for (int i = 0 ; i < itens.size(); i++) {
+            itens.add( new Evento("sobre o evento " + i, "Palestrante " + i));
+        }
+
+//        itens.add( new Evento("sobre o evento", "Palestrante"));
+//        itens.add( new Evento("sobre o eventooo", "Paaalestrante"));
+//        itens.add( new Evento("sobreee o evento", "Palestranteee"));
+        adapter= new EventoAdapter(Activitytela2Main2Activity.this, itens);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(Activitytela2Main2Activity.this,
+                LinearLayoutManager.VERTICAL, false);
+        recycler.setLayoutManager(layoutManager);
+        recycler.setAdapter(adapter);
+    }
