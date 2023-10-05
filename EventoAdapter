@@ -1,0 +1,50 @@
+package com.example.myproject;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
+public class EventoAdapter extends RecyclerView.Adapter<EventoViewHolder> {
+
+    private Context context;
+    private ArrayList<Evento> itens;
+
+    public EventoAdapter(Context context, ArrayList<Evento> itens) {
+        this.context = context;
+        this.itens = itens;
+    }
+
+
+    @NonNull
+    @Override
+    public EventoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.recycler_view_item, parent, false);
+        EventoViewHolder viewHolder = new EventoViewHolder(view);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull EventoViewHolder holder, int position) {
+        Evento evento =itens.get(position);
+        EventoViewHolder.nome.setText(evento.getNome());
+        EventoViewHolder.descricao.setText(evento.getDescricao());
+        EventoViewHolder.foto.setImageDrawable(evento.getFoto());
+        EventoViewHolder.nome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Clicou em" + itens.get(position).getNome(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return itens.size();
+    }
