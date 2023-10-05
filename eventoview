@@ -1,0 +1,23 @@
+package com.example.myproject;
+
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+public class EventoViewHolder extends RecyclerView.ViewHolder {
+
+    static TextView nome;
+    static TextView descricao;
+    static ImageView foto;
+
+    public EventoViewHolder(@NonNull View itemView) {
+        super(itemView);
+        nome= itemView.findViewById(R.id.nome);
+        descricao = itemView.findViewById(R.id.descricao);
+        foto=itemView.findViewById(R.id.foto);
+
+    }
+}
